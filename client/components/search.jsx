@@ -1,10 +1,19 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { fetchCoffee } from '../actions/coffee';
 
-export default class Search extends Component {
+class Search extends Component {
   constructor(props){
     super(props);
-  }
+
+    this.fetchCoffee = this.fetchCoffee.bind(this);
+}
+
+fetchCoffee(e) {
+  e.preventDefault();
+  this.props.fetchCoffee(e.target.search.value);
+
+}
 
 
   render(){
@@ -12,7 +21,7 @@ export default class Search extends Component {
     return(
       <div className='center'>
       where you trying to find coffee
-        <form>
+        <form onSubmit={ this.fetchCoffee }>
           <input type='text' name='search'/>
           <div>
             <input type='submit' className='btn btn-primary any-button' />
@@ -22,3 +31,5 @@ export default class Search extends Component {
     )
   }
 }
+
+export default connect(null, { fetchCoffee })(Search);
