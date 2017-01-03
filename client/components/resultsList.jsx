@@ -11,9 +11,7 @@ class ResultsList extends Component {
     if(!this.props.data) {
       return (
         <div className='center'>
-          <Link to={'/'}>
-            You haven't searched anything yet!
-          </Link>
+          You haven't searched anything yet!
         </div>
       )
     }

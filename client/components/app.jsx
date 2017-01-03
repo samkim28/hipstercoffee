@@ -8,7 +8,6 @@ import Cookies from 'js-cookie';
 export default class App extends Component {
 
 	render() {
-
 		const user = Cookies.get('username');
 
 		return (

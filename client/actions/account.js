@@ -12,7 +12,7 @@ export function signUp(input) {
   return axios.post('/signup', data)
     .then(checkStatus)
     .then((response) => {
-      Cookies.set('username', response.data.user.username);
+      Cookies.set('username', response.data.username);
       browserHistory.push('/home');
       return { type: SIGN_UP, payload: response.data }
     })
