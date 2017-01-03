@@ -10,8 +10,26 @@ const user = {
         if(err) {
           return console.error(err);
         }
-        console.log('new user: ', newUser);
         res.send(newUser);
+      })
+    }
+  },
+  'signin': {
+    'post': (req, res) => {
+      User.findOne({ 'username': req.body.username }, 'username password _id', (err, user) => {
+        if(err) {
+          console.error(err);
+        } else {
+          if(user.password === req.body.password){
+            res.send({
+              user: {id: user._id, username: user.username}
+            })
+          } else {
+            res.send({
+              msg: 'Incorrect Password'
+            })
+          }
+        }
       })
     }
   }

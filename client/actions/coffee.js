@@ -3,7 +3,6 @@ import axios from 'axios';
 import { checkStatus } from './utilities';
 
 export function fetchCoffee(input) {
-  console.log('input: ', input);
   const data = {
     params: {
       input: input

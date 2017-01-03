@@ -9,20 +9,19 @@ import Result from './result';
 class ResultsList extends Component {
   render(){
     if(!this.props.data) {
-      console.log('!thisprops dtata: ', this.props.data);
       return (
         <div className='center'>
           <Link to={'/'}>
-Nothing yet          </Link>
+            You haven't searched anything yet!
+          </Link>
         </div>
       )
     }
      else if(this.props.data) {
       const results = this.props.data.data.businesses.map((result, idx) => <Result result={ result } key={ idx } />);
-      console.log('this props data: ', this.props.data)
       return (
         <div className='center'>
-{results}
+          {results}
         </div>
       )
     }
@@ -31,7 +30,6 @@ Nothing yet          </Link>
 
 
 const mapStateToProps = (state) => {
-  console.log('stateL ', state);
   return {
     data: state.search
   }
