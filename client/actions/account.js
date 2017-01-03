@@ -1,18 +1,17 @@
-import { FETCH_COFFEE } from './types';
+import { SIGN_UP } from './types';
 import axios from 'axios';
 import { checkStatus } from './utilities';
 
-export function fetchCoffee(input) {
+export function signUp(input) {
   console.log('input: ', input);
   const data = {
-    params: {
-      input: input
-    }
+    username: input.username,
+    password: input.password
   };
-  return axios.get('/search', data)
+  return axios.post('/signup', data)
     .then(checkStatus)
     .then((response) => {
-      return { type: FETCH_COFFEE, payload: response.data }
+      return { type: SIGN_UP, payload: response.data }
     })
     .catch((error) => {
       console.error(error);
