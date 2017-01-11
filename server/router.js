@@ -4,6 +4,8 @@ const router = express.Router();
 const Yelp = require('yelp');
 require('dotenv').config();
 const user = require('./users/users-controller');
+const stores = require('./stores/stores-controller');
+const reviews = require('./reviews/reviews-controller');
 
 const yelp = new Yelp({
   consumer_key: process.env.CONSUMER_KEY,
@@ -13,8 +15,9 @@ const yelp = new Yelp({
 });
 
 router.post('/signup', user.signup.post);
-
 router.post('/signin', user.signin.post);
+router.post('/addstore', stores.addstore.post);
+router.post('/addreview', reviews.addreview.post);
 
 router.get('/search', (req, res) => {
   yelp.search({
