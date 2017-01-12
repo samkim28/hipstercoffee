@@ -5,6 +5,7 @@ import SignUp from './signup';
 import { connect } from 'react-redux'
 import Cookies from 'js-cookie';
 import HipsterList from './hipsterList';
+import NavBar from './navbar';
 
 export default class App extends Component {
 
@@ -13,12 +14,12 @@ export default class App extends Component {
 
 		return (
       <div className='container'>
+			<NavBar />
         <h1 className='center'>hipster coffee</h1>
 				<h3>Welcome, {user}!</h3>
         <Search />
 				<div className='row'>
 	        <ResultsList className='col-md-6' />
-					<HipsterList className='col-md-6' />
 				</div>
       </div>
 		)

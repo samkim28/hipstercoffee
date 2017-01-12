@@ -8,6 +8,7 @@ import { Provider } from 'react-redux';
 import { Router, Route, browserHistory } from 'react-router';
 import Splash from './components/splash';
 import SignUp from './components/signup';
+import ShopPage from './components/shopPage';
 
 const createStoreWithMiddleware = applyMiddleware(ReduxPromise)(createStore);
 const store = createStoreWithMiddleware(reducers, applyMiddleware(logger));
@@ -30,5 +31,6 @@ ReactDOM.render(
       <Route path='/' component={ Splash } />
       <Route path='/home' component={ App } />
       <Route path='/signup' component={ SignUp } />
+      <Route path='/shoppage/:id' component={ ShopPage } />
     </Router>
   </Provider>, document.getElementById('main'));

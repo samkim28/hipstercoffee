@@ -1,10 +1,12 @@
 import React from 'react';
 import AddStoreButton from './addStoreButton';
+import { Link } from 'react-router';
+
 
 const Result = (props) => {
 	return (
 		<div>
-      <h3><a href={props.result.url}>{props.result.name}</a></h3>
+      <h3><Link to={`/shoppage/${props.result.id}`}>{props.result.name}</Link></h3>
       <div>
         Rating: <img src={props.result.rating_img_url} />
       </div>
