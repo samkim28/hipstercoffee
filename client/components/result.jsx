@@ -1,4 +1,5 @@
 import React from 'react';
+import AddStoreButton from './addStoreButton';
 
 const Result = (props) => {
 	return (
@@ -13,6 +14,7 @@ const Result = (props) => {
       <div>
         Snippet: {props.result.snippet_text}
       </div>
+			<AddStoreButton storeName={props.result.name} />
 		</div>
 	);
 

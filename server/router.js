@@ -18,6 +18,7 @@ router.post('/signup', user.signup.post);
 router.post('/signin', user.signin.post);
 router.post('/addstore', stores.addstore.post);
 router.post('/addreview', reviews.addreview.post);
+router.get('/fetchstores', stores.fetchstores.get);
 
 router.get('/search', (req, res) => {
   yelp.search({

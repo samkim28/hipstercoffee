@@ -8,9 +8,19 @@ const stores = {
         favorites: 1
       }, (err, newStore) => {
         if(err) {
-          return console.error(err);
+          console.error(err);
         }
         res.send(newStore);
+      })
+    }
+  },
+  'fetchstores': {
+    'get': (req, res) => {
+      Stores.find({}, (err, storeslist) => {
+        if(err) {
+          console.error(err);
+        }
+        res.send(storeslist);
       })
     }
   }
