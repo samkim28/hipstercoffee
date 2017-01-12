@@ -15,9 +15,10 @@ export default class AddStoreButton extends Component {
   }
 
   render() {
+    console.log('this.props inside addb utton: ', this.props);
 
     return (
-      <button onClick={ () => addStore(this.props.storeName) }>
+      <button onClick={ () => addStore(this.props.store) }>
         like this store. add it to our database.
       </button>
     )

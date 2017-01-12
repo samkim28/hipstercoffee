@@ -16,7 +16,7 @@ const Result = (props) => {
       <div>
         Snippet: {props.result.snippet_text}
       </div>
-			<AddStoreButton storeName={props.result.name} />
+			<AddStoreButton store={props.result} />
 		</div>
 	);
 

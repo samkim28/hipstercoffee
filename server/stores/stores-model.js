@@ -3,7 +3,8 @@ const mongo = require('../db');
 
 const storesSchema = mongoose.Schema({
   name: String,
-  favorites: Number,
+  yelp_id: String,
+  likes: Number,
   reviews: []
 });
 

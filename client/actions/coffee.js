@@ -18,9 +18,10 @@ export function fetchCoffee(input) {
     });
 }
 
-export function addStore(storeName) {
+export function addStore(store) {
   const data = {
-    name: storeName
+    name: store.name,
+    yelp_id: store.id
   }
   return axios.post('/addstore', data)
     .then(checkStatus)

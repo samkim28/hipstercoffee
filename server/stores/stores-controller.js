@@ -3,15 +3,32 @@ const Stores = require('./stores-model');
 const stores = {
   'addstore': {
     'post': (req, res) => {
-      Stores.create({
-        name: req.body.name,
-        favorites: 1
-      }, (err, newStore) => {
-        if(err) {
+
+      Stores.findOneAndUpdate({
+        yelp_id: req.body.yelp_id},
+      {$inc: {likes: 1},
+       $set: {name: req.body.name}
+      }, {new: true, upsert: true}, (err, doc) => {
+        if(err){
           console.error(err);
         }
-        res.send(newStore);
-      })
+
+    console.log(doc);
+    res.send(doc);
+});
+
+
+
+      // Stores.create({
+      //   name: req.body.name,
+      //   yelp_id: req.body.yelp_id,
+      //   likes: 1
+      // }, (err, newStore) => {
+      //   if(err) {
+      //     console.error(err);
+      //   }
+      //   res.send(newStore);
+      // })
     }
   },
   'fetchstores': {
