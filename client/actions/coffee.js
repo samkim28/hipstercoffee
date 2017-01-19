@@ -1,4 +1,4 @@
-import { FETCH_COFFEE, ADD_STORE } from './types';
+import { FETCH_COFFEE, ADD_STORE, FETCH_STORES } from './types';
 import axios from 'axios';
 import { checkStatus } from './utilities';
 
@@ -31,4 +31,15 @@ export function addStore(store) {
     .catch((error) => {
       console.error(error);
     });
+}
+
+export function fetchStores() {
+  return axios.get('/fetchstores')
+  .then(checkStatus)
+  .then((response) => {
+    return { type: FETCH_STORES, payload: response.data }
+  })
+  .catch((error) => {
+    console.error(error);
+  });
 }

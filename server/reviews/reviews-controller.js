@@ -5,6 +5,7 @@ const reviews = {
     'post': (req, res) => {
       Reviews.create({
         review: req.body.review,
+        username: req.body.username,
         user_id: req.body.user_id,
         store_id: req.body.store_id
       }, (err, newReview) => {

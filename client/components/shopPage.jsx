@@ -4,22 +4,25 @@ import Search from './search';
 import { Link } from 'react-router';
 import Result from './result';
 import ReviewBox from './reviewBox';
+import Cookies from 'js-cookie';
 
 
 class ShopPage extends Component {
 
   render(){
-    let pageData = undefined;
-    for(let i = 0; i < this.props.data.length; i++){
-      if(this.props.data[i].id === this.props.params.id){
-        pageData = this.props.data[i];
+    let shopName = "";
+    for(let i = 0; i < this.props.data.storeList.length; i++){
+      if(this.props.data.storeList[i].yelp_id === this.props.params.id) {
+        shopName = this.props.data.storeList[i].name;
       }
     }
+
+    console.log('cookies;', Cookies.get('user_id'));
 
     return (
       <div>
         <h1>
-        {pageData.name}
+        { shopName }
         </h1>
         <ReviewBox />
       </div>
@@ -28,8 +31,9 @@ class ShopPage extends Component {
 }
 
 const mapStateToProps = (state) => {
+  console.log('state inside shop page: ', state);
   return {
-    data: state.search.data.businesses
+    data: state.search
   }
 }
 

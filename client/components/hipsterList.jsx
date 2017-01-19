@@ -1,22 +1,40 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-// import { fetchCoffee } from '../actions/coffee';
+import { fetchStores } from '../actions/coffee';
 // import Search from './search';
 import { Link } from 'react-router';
 // import Result from './result';
+import HipsterResult from './individualHipsterShop';
 
 
-export default class HipsterList extends Component {
+class HipsterList extends Component {
+
+  componentWillMount(){
+    this.props.fetchStores();
+  }
   render(){
+    if(!this.props.storeList) {
       return (
         <div>
-          <h1>
-          No hipster approved coffee shops
-          </h1>
+          No Hipster Approved Coffee Shops
+        </div>
+      )
+    }
+    else if(this.props.storeList) {
+      const results = this.props.storeList.data.map((result, idx) => <HipsterResult result={result} key={idx} />);
+      return (
+        <div>
+          {results}
         </div>
       )
     }
   }
+}
 
+const mapStateToProps = (state) => {
+  return {
+    storeList: state.hipsterList
+  }
+}
 
-// export default connect(mapStateToProps, { fetchCoffee })(HipsterList);
+export default connect(mapStateToProps, { fetchStores })(HipsterList);

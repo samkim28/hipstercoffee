@@ -33,6 +33,7 @@ export function signIn(input) {
         return { type: AUTH_ERROR, payload: response.data }
       } else {
       Cookies.set('username', response.data.user.username);
+      Cookies.set('user_id', response.data.user.id);
       browserHistory.push('/home');
       return { type: SIGN_IN, payload: response.data }
       }

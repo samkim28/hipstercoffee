@@ -12,23 +12,8 @@ const stores = {
         if(err){
           console.error(err);
         }
-
-    console.log(doc);
     res.send(doc);
-});
-
-
-
-      // Stores.create({
-      //   name: req.body.name,
-      //   yelp_id: req.body.yelp_id,
-      //   likes: 1
-      // }, (err, newStore) => {
-      //   if(err) {
-      //     console.error(err);
-      //   }
-      //   res.send(newStore);
-      // })
+    });
     }
   },
   'fetchstores': {
@@ -41,11 +26,6 @@ const stores = {
       })
     }
   }
-  // 'addreview': {
-  //   'post': (req, res) => {
-  //     Stores.findByIdAndUpdate
-  //   }
-  // }
 }
 
 module.exports = stores;

@@ -4,7 +4,6 @@ import ResultsList from './resultsList';
 import SignUp from './signup';
 import { connect } from 'react-redux'
 import Cookies from 'js-cookie';
-import HipsterList from './hipsterList';
 import NavBar from './navbar';
 
 export default class App extends Component {
