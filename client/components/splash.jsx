@@ -9,9 +9,6 @@ export default class Splash extends Component {
     return (
       <div>
         <SignIn />
-        <div>
-          <Link to='/signup'>Create an account!</Link>
-        </div>
       </div>
     )
   }
