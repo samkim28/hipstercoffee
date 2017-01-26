@@ -67,18 +67,22 @@ handlePasswordChange(e) {
           <div className="col-sm-6 col-md-4 col-md-offset-4">
             <div>
               <form className="form-signin-signup" onSubmit={ this.signUp }>
-              Username:
+              <div>
+                Username:
                 <input
                   name="username"
                   type="text"
                   onChange={this.handleUsernameChange}
                 />
+              </div>
+              <div>
                 Password:
                 <input
                   name="password"
                   type="password"
                   onChange={this.handlePasswordChange}
                 />
+              </div>
                 {/* Confirm Password:
                 <input
                   name="confirmPW"
