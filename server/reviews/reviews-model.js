@@ -7,14 +7,14 @@ const Schema = mongoose.Schema;
 const reviewsSchema = mongoose.Schema({
   review: String,
   username: String,
-  user_id: [{
+  user_id: {
     type: Schema.Types.ObjectId,
     ref: 'User'
-  }],
-  store_id: [{
+  },
+  store_id: {
     type: Schema.Types.ObjectId,
     ref: 'Store'
-  }]
+  }
 });
 
 const Reviews = mongoose.model('Reviews', reviewsSchema);

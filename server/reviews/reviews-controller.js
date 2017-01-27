@@ -1,4 +1,5 @@
 const Reviews = require('./reviews-model');
+const Stores = require('../stores/stores-model');
 
 const reviews = {
   'addreview': {
@@ -11,10 +12,35 @@ const reviews = {
       }, (err, newReview) => {
         if(err) {
           return console.error(err);
+        } else {
+          Stores.findById(req.body.store_id, (err, store) => {
+            if(err) {
+              return console.error(err);
+            }
+            store.reviews.push(newReview);
+            store.save((err) => {
+              if(err) {
+                return console.error(err);
+              } else {
+                res.send(store);
+              }
+            });
+          });
         }
-        res.send(newReview);
-      })
+      });
     }
+  // 'fetchreviews': {
+  //   'get': (req, res) => {
+  //     Reviews.
+  //   //need to figure out how to fetch reviews.
+    //are you going to push review id into Stores document
+//exports.addFriend = function (req, res, next)
+// {
+// var review = {"firstName": req.body.fName, "lastName": req.body.lName};
+// Stores.findOneAndUpdate({yelp_id: req.user.yelp_id}, {$push: {reviews: newReview}});
+// };
+  //   }
+  // }
   }
 }
 
