@@ -29,18 +29,21 @@ const reviews = {
         }
       });
     }
-  // 'fetchreviews': {
-  //   'get': (req, res) => {
-  //     Reviews.
-  //   //need to figure out how to fetch reviews.
-    //are you going to push review id into Stores document
-//exports.addFriend = function (req, res, next)
-// {
-// var review = {"firstName": req.body.fName, "lastName": req.body.lName};
-// Stores.findOneAndUpdate({yelp_id: req.user.yelp_id}, {$push: {reviews: newReview}});
-// };
-  //   }
-  // }
+  },
+  'fetchreviews': {
+    'get': (req, res) => {
+      console.log('req query:', req.query);
+      Stores.findById(req.query.store_id, (err, store) => {
+        if(err) {
+          return console.error(err);
+        }
+        Reviews.find({
+          _id: {$in: store.reviews}
+        }, (err, allReviews) => {
+          res.send(allReviews)
+        })
+      })
+    }
   }
 }
 
