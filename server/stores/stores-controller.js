@@ -16,7 +16,7 @@ const stores = {
     });
     }
   },
-  'fetchstores': {
+  'fetchallstores': {
     'get': (req, res) => {
       Stores.find({}, (err, storeslist) => {
         if(err) {
@@ -24,6 +24,18 @@ const stores = {
         }
         res.send(storeslist);
       })
+    }
+  },
+  'fetchstore': {
+    'get': (req, res) => {
+      Stores.findById(req.query.store_id, (err, store) => {
+        if(err) {
+          return console.error(err);
+        } else {
+          console.log('store: ', store)
+          res.send(store);
+        }
+      });
     }
   }
 }

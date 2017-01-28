@@ -3,60 +3,20 @@ import { Link } from 'react-router';
 import { connect } from 'react-redux';
 import { fetchReviews } from '../actions/shop';
 import Review from './review';
-import ReviewBox from './reviewBox';
 import Cookies from 'js-cookie';
 
-class HipsterResult extends Component {
-	constructor(props) {
-		super(props);
-	}
-
-	componentWillMount(){
-		this.props.fetchReviews(this.props.result._id);
-		Cookies.set('store_id', this.props.result._id);
-	}
-
-	componentWillUnmount(){
-		Cookies.remove('store_id');
-	}
+export default class HipsterResult extends Component {
 
 	render(){
-
-		if(!this.props.shop) {
-			return (
+		return(
 			<div>
-				<h3><Link to={`/shoppage/${this.props.result.yelp_id}`}>{this.props.result.name}</Link></h3>
-				<ReviewBox />
+		   	<h3>
+		    	<Link to={`/shoppage/${this.props.result._id}/${this.props.result.name}`}>{this.props.result.name}</Link>
+		    </h3>
 				<div>
-					Reviews: No reviews yet. Be the first!
-				</div>
-				<div>
-					Likes: {this.props.result.likes}
-				</div>
-     </div>
-			)
-		} else {
-			const shopReviews = this.props.shop.shopReviews.map((review, idx) => <Review review={review} key={idx} />);
-			return (
-				<div>
-		      <h3><Link to={`/shoppage/${this.props.result.yelp_id}`}>{this.props.result.name}</Link></h3>
-					<ReviewBox />
-		      <div>
-		        Reviews: {shopReviews}
-		      </div>
-		      <div>
-		        Likes: {this.props.result.likes}
-		      </div>
-				</div>
-			);
-		}
+			  	Likes: {this.props.result.likes}
+			  </div>
+	   </div>
+		)
 	}
 }
-
-const mapStateToProps = (state) => {
-  return {
-    shop: state.review
-  }
-}
-
-export default connect(mapStateToProps, { fetchReviews })(HipsterResult);

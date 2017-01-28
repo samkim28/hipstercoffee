@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Cookies from 'js-cookie';
-import { addReview } from '../actions/shop';
+import { addReview, fetchReviews } from '../actions/shop';
 
 
 class ReviewBox extends Component {
@@ -20,7 +20,10 @@ class ReviewBox extends Component {
 
   addReview(e) {
     e.preventDefault();
-    this.props.addReview(this.state);
+    this.props.addReview(this.state)
+    .then(()=> {
+      this.props.fetchReviews(this.state.store_id);
+    });
   }
 
   handleTextAreaChange(e) {
@@ -40,4 +43,4 @@ class ReviewBox extends Component {
   }
 }
 
-export default connect(null, { addReview })(ReviewBox);
+export default connect(null, { addReview, fetchReviews })(ReviewBox);

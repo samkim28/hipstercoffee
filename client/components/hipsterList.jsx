@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchStores } from '../actions/coffee';
+import { fetchAllStores } from '../actions/coffee';
 // import Search from './search';
 import { Link } from 'react-router';
 // import Result from './result';
@@ -10,7 +10,7 @@ import HipsterResult from './individualHipsterShop';
 class HipsterList extends Component {
 
   componentWillMount(){
-    this.props.fetchStores();
+    this.props.fetchAllStores();
   }
   render(){
     if(!this.props.storeList) {
@@ -37,4 +37,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps, { fetchStores })(HipsterList);
+export default connect(mapStateToProps, { fetchAllStores })(HipsterList);

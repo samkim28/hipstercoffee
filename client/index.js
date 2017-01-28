@@ -32,7 +32,7 @@ ReactDOM.render(
       <Route path='/' component={ Splash } />
       <Route path='/home' component={ App } />
       <Route path='/signup' component={ SignUp } />
-      <Route path='/shoppage/:id' component={ ShopPage } />
+      <Route path='/shoppage/:id/:name' component={ ShopPage } />
       <Route path='/hipsterlist' component={ HipsterList } />
     </Router>
   </Provider>, document.getElementById('main'));

@@ -1,8 +1,8 @@
-import { FETCH_ALL_STORES } from '../actions/types';
+import { FETCH_STORE } from '../actions/types';
 
 export default function(state = null, action) {
   switch(action.type) {
-    case FETCH_ALL_STORES:
+    case FETCH_STORE:
       return { ...state, data: action.payload }
     default:
       return state;
