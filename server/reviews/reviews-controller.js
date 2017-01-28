@@ -32,7 +32,6 @@ const reviews = {
   },
   'fetchreviews': {
     'get': (req, res) => {
-      console.log('req query:', req.query);
       Stores.findById(req.query.store_id, (err, store) => {
         if(err) {
           return console.error(err);

@@ -17,8 +17,6 @@ class ShopPage extends Component {
       }
     }
 
-    console.log('cookies;', Cookies.get('user_id'));
-
     return (
       <div>
         <h1>
@@ -31,7 +29,6 @@ class ShopPage extends Component {
 }
 
 const mapStateToProps = (state) => {
-  console.log('state inside shop page: ', state);
   return {
     data: state.search
   }

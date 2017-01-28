@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { fetchReviews } from '../actions/shop';
 import Review from './review';
 import ReviewBox from './reviewBox';
+import Cookies from 'js-cookie';
 
 class HipsterResult extends Component {
 	constructor(props) {
@@ -12,6 +13,11 @@ class HipsterResult extends Component {
 
 	componentWillMount(){
 		this.props.fetchReviews(this.props.result._id);
+		Cookies.set('store_id', this.props.result._id);
+	}
+
+	componentWillUnmount(){
+		Cookies.remove('store_id');
 	}
 
 	render(){

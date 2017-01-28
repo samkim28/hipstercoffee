@@ -3,7 +3,6 @@ import { Link } from 'react-router';
 
 
 const Review = (props) => {
-  console.log('props inside review component:', props);
 	return (
 		<div>
       <div>
