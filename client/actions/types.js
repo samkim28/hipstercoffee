@@ -1,4 +1,4 @@
-export const FETCH_COFFEE = 'FETCH_COFFEE';
+export const FETCH_YELP_STORES = 'FETCH_YELP_STORES';
 export const SIGN_UP = 'SIGN_UP';
 export const SIGN_IN = 'SIGN_IN';
 export const AUTH_ERROR = 'AUTH_ERROR';

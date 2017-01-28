@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
 import { connect } from 'react-redux';
-import { fetchReviews } from '../actions/shop';
+import { fetchReviews } from '../actions/storeReviews';
 import Review from './review';
 import Cookies from 'js-cookie';
 

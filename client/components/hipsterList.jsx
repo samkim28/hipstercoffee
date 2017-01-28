@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchAllStores } from '../actions/coffee';
+import { fetchAllStores } from '../actions/hipsterStores';
 // import Search from './search';
 import { Link } from 'react-router';
 // import Result from './result';

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchCoffee } from '../actions/coffee';
+import { fetchYelpStores } from '../actions/yelpSearch';
 import Search from './search';
 import Result from './result';
 
@@ -32,4 +32,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps, { fetchCoffee })(ResultsList);
+export default connect(mapStateToProps, { fetchYelpStores })(ResultsList);

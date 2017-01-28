@@ -1,17 +1,17 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchCoffee } from '../actions/coffee';
+import { fetchYelpStores } from '../actions/yelpSearch';
 
 class Search extends Component {
   constructor(props){
     super(props);
 
-    this.fetchCoffee = this.fetchCoffee.bind(this);
+    this.fetchYelpStores = this.fetchYelpStores.bind(this);
 }
 
-fetchCoffee(e) {
+fetchYelpStores(e) {
   e.preventDefault();
-  this.props.fetchCoffee(e.target.search.value);
+  this.props.fetchYelpStores(e.target.search.value);
 
 }
 
@@ -21,7 +21,7 @@ fetchCoffee(e) {
     return(
       <div className='center'>
       where you trying to find coffee
-        <form onSubmit={ this.fetchCoffee }>
+        <form onSubmit={ this.fetchYelpStores }>
           <input type='text' name='search'/>
           <div>
             <input type='submit' className='btn btn-primary any-button' />
@@ -32,4 +32,4 @@ fetchCoffee(e) {
   }
 }
 
-export default connect(null, { fetchCoffee })(Search);
+export default connect(null, { fetchYelpStores })(Search);

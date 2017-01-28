@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { addStore } from '../actions/coffee';
+import { addStore } from '../actions/hipsterStores';
 
 
 export default class AddStoreButton extends Component {
@@ -17,7 +17,7 @@ export default class AddStoreButton extends Component {
   render() {
     return (
       <button onClick={ () => addStore(this.props.store) }>
-        like this store. add it to our database.
+        like this store
       </button>
     )
   }

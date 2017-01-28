@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Cookies from 'js-cookie';
-import { addReview, fetchReviews } from '../actions/shop';
+import { addReview, fetchReviews } from '../actions/storeReviews';
 
 
 class ReviewBox extends Component {

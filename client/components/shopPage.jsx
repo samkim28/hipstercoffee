@@ -5,8 +5,8 @@ import { Link } from 'react-router';
 import Review from './review';
 import ReviewBox from './reviewBox';
 import Cookies from 'js-cookie';
-import { fetchReviews } from '../actions/shop';
-import { fetchStore } from '../actions/coffee';
+import { fetchReviews } from '../actions/storeReviews';
+import { fetchStore } from '../actions/hipsterStores';
 
 
 class ShopPage extends Component {
