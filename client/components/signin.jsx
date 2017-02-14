@@ -1,14 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-// import { Field, reduxForm } from 'redux-form';
 import { Link } from 'react-router';
 // import { submitSignUp, resetError } from '../../actions/auth';
-// import { AutoComplete as MUIAutoComplete } from 'material-ui';
-// import getMuiTheme from 'material-ui/styles/getMuiTheme';
-// import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-// import FlatButton from 'material-ui/FlatButton';
-// import { TextField } from 'redux-form-material-ui';
-// import {blueGrey700} from 'material-ui/styles/colors';
+import { AutoComplete as MUIAutoComplete } from 'material-ui';
+import getMuiTheme from 'material-ui/styles/getMuiTheme';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import FlatButton from 'material-ui/FlatButton';
+import TextField from 'material-ui/TextField';
+import {blueGrey700} from 'material-ui/styles/colors';
 import { signIn, resetError } from '../actions/account';
 
 
@@ -48,43 +47,49 @@ handlePasswordChange(e) {
   render() {
 
     // const { handleSubmit, submitting } = this.props;
-    // const styles = {
-    //   underlineStyle: {
-    //     borderColor: blueGrey700
-    //   },
-    //   floatingLabelStyle: {
-    //     color: blueGrey700
-    //   },
-    //   floatingLabelFocusStyle: {
-    //     color: blueGrey700
-    //   },
-    //   labelStyle: {
-    //     color: 'white',
-    //     textTransform: 'capitalize'
-    //   },
-    //   backgroundColor: blueGrey700
-    // };
+    const styles = {
+      underlineStyle: {
+        borderColor: blueGrey700
+      },
+      floatingLabelStyle: {
+        color: blueGrey700
+      },
+      floatingLabelFocusStyle: {
+        color: blueGrey700
+      },
+      labelStyle: {
+        color: 'white',
+        textTransform: 'capitalize'
+      },
+      backgroundColor: blueGrey700
+    };
 
     return (
-      // <MuiThemeProvider muiTheme={getMuiTheme()}>
+      <MuiThemeProvider muiTheme={getMuiTheme()}>
         <div className="container">
           <div className="col-sm-6 col-md-4 col-md-offset-4">
             <div>
               <form className="form-signin-signup" onSubmit={ this.signIn }>
               <div>
-                Username:
-                <input
+                <TextField
                   name="username"
                   type="text"
                   onChange={this.handleUsernameChange}
+                  floatingLabelText="Username"
+                  underlineFocusStyle={styles.underlineStyle}
+                  floatingLabelStyle={styles.floatingLabelStyle}
+                  floatingLabelFocusStyle={styles.floatingLabelFocusStyle}
                 />
               </div>
               <div>
-                Password:
-                <input
+                <TextField
                   name="password"
                   type="password"
                   onChange={this.handlePasswordChange}
+                  floatingLabelText="Password"
+                  underlineFocusStyle={styles.underlineStyle}
+                  floatingLabelStyle={styles.floatingLabelStyle}
+                  floatingLabelFocusStyle={styles.floatingLabelFocusStyle}
                 />
               </div>
                 {/* Confirm Password:
@@ -92,10 +97,10 @@ handlePasswordChange(e) {
                   name="confirmPW"
                   type="password"
                 /> */}
-                <input
+                <FlatButton
                   type="submit"
                   className="btn btn-lg btn-primary btn-block main-btn"
-                  value="Sign In"
+                  label="Sign In"
                 />
                 {/* <Link to={'/signin'} className="text-center new-account">
                   Sign In
@@ -108,7 +113,7 @@ handlePasswordChange(e) {
           </div>
           {this.props.error}
         </div>
-      // </MuiThemeProvider>
+      </MuiThemeProvider>
     );
 
   }
