@@ -67,49 +67,55 @@ handlePasswordChange(e) {
     return (
       <MuiThemeProvider muiTheme={getMuiTheme()}>
         <div className="container">
-          <div className="col-sm-6 col-md-4 col-md-offset-4">
-            <div>
-              <form className="form-signin-signup" onSubmit={ this.signIn }>
-              <div>
-                <TextField
-                  name="username"
-                  type="text"
-                  onChange={this.handleUsernameChange}
-                  floatingLabelText="Username"
-                  underlineFocusStyle={styles.underlineStyle}
-                  floatingLabelStyle={styles.floatingLabelStyle}
-                  floatingLabelFocusStyle={styles.floatingLabelFocusStyle}
-                />
-              </div>
-              <div>
-                <TextField
-                  name="password"
-                  type="password"
-                  onChange={this.handlePasswordChange}
-                  floatingLabelText="Password"
-                  underlineFocusStyle={styles.underlineStyle}
-                  floatingLabelStyle={styles.floatingLabelStyle}
-                  floatingLabelFocusStyle={styles.floatingLabelFocusStyle}
-                />
-              </div>
-                {/* Confirm Password:
-                <input
-                  name="confirmPW"
-                  type="password"
-                /> */}
-                <FlatButton
-                  type="submit"
-                  className="btn btn-lg btn-primary btn-block main-btn"
-                  label="Sign In"
-                />
-                {/* <Link to={'/signin'} className="text-center new-account">
-                  Sign In
-                </Link> */}
+          <div className="row">
+            <div className="col-6 col-md-4"></div>
+            <div className="col-6 col-md-4">
+                <form className="form-signin-signup" onSubmit={ this.signIn }>
                 <div>
-                  <Link to='/signup'>Create an account!</Link>
+                  <TextField
+                    name="username"
+                    type="text"
+                    onChange={this.handleUsernameChange}
+                    floatingLabelText="Username"
+                    underlineFocusStyle={styles.underlineStyle}
+                    floatingLabelStyle={styles.floatingLabelStyle}
+                    floatingLabelFocusStyle={styles.floatingLabelFocusStyle}
+                    style={{width: '100%'}}
+                    inputStyle={{width: '100%'}}
+                  />
                 </div>
-              </form>
+                <div>
+                  <TextField
+                    name="password"
+                    type="password"
+                    onChange={this.handlePasswordChange}
+                    floatingLabelText="Password"
+                    underlineFocusStyle={styles.underlineStyle}
+                    floatingLabelStyle={styles.floatingLabelStyle}
+                    floatingLabelFocusStyle={styles.floatingLabelFocusStyle}
+                    style={{width: '100%'}}
+                    inputStyle={{width: '100%'}}
+                  />
+                </div>
+                  {/* Confirm Password:
+                  <input
+                    name="confirmPW"
+                    type="password"
+                  /> */}
+                  <FlatButton
+                    type="submit"
+                    className="btn btn-lg btn-primary btn-block main-btn"
+                    label="Sign In"
+                  />
+                  {/* <Link to={'/signin'} className="text-center new-account">
+                    Sign In
+                  </Link> */}
+                  <div className="centered">
+                    <Link to='/signup'>Create an account!</Link>
+                  </div>
+                </form>
             </div>
+            <div className="col-6 col-md-4"></div>
           </div>
           {this.props.error}
         </div>

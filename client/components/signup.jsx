@@ -61,9 +61,10 @@ handlePasswordChange(e) {
     return (
       <MuiThemeProvider muiTheme={getMuiTheme()}>
         <div className="container">
-          <div className="col-sm-6 col-md-4 col-md-offset-4">
-            <div>
-              <form className="form-signin-signup" onSubmit={ this.signUp }>
+        <div className="row">
+          <div className="col-6 col-md-4"></div>
+          <div className="col-6 col-md-4">
+              <form className="form-signin-signup" onSubmit={ this.signIn }>
               <div>
                 <TextField
                   name="username"
@@ -73,6 +74,8 @@ handlePasswordChange(e) {
                   underlineFocusStyle={styles.underlineStyle}
                   floatingLabelStyle={styles.floatingLabelStyle}
                   floatingLabelFocusStyle={styles.floatingLabelFocusStyle}
+                  style={{width: '100%'}}
+                  inputStyle={{width: '100%'}}
                 />
               </div>
               <div>
@@ -84,6 +87,8 @@ handlePasswordChange(e) {
                   underlineFocusStyle={styles.underlineStyle}
                   floatingLabelStyle={styles.floatingLabelStyle}
                   floatingLabelFocusStyle={styles.floatingLabelFocusStyle}
+                  style={{width: '100%'}}
+                  inputStyle={{width: '100%'}}
                 />
               </div>
                 {/* Confirm Password:
@@ -101,6 +106,7 @@ handlePasswordChange(e) {
                 </Link> */}
               </form>
             </div>
+            <div className="col-6 col-md-4"></div>
           </div>
         </div>
       </MuiThemeProvider>
