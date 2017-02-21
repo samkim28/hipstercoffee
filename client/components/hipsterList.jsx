@@ -5,6 +5,8 @@ import { fetchAllStores } from '../actions/hipsterStores';
 import { Link } from 'react-router';
 // import Result from './result';
 import HipsterResult from './individualHipsterShop';
+import NavBar from './navbar';
+
 
 
 class HipsterList extends Component {
@@ -16,6 +18,7 @@ class HipsterList extends Component {
     if(!this.props.storeList) {
       return (
         <div>
+        <NavBar />
           No Hipster Approved Coffee Shops
         </div>
       )
@@ -24,6 +27,7 @@ class HipsterList extends Component {
       const results = this.props.storeList.data.map((result, idx) => <HipsterResult result={result} key={idx} />);
       return (
         <div>
+        <NavBar />
           {results}
         </div>
       )

@@ -14,13 +14,18 @@ export default class App extends Component {
 		return (
       <div className='container'>
 			<NavBar />
-        <h1 className='center'>hipster coffee</h1>
-				<h3>Welcome, {user}!</h3>
-        <Search />
 				<div className='row'>
-	        <ResultsList className='col-md-6' />
+					<h3>Welcome, {user}!</h3>
 				</div>
-      </div>
+				<div className="row">
+					<div className="col-md-6"><Search /></div>
+					<div className="col-md-6"></div>
+		    </div>
+				<div className="row">
+					<div className="col-md-6"><ResultsList /></div>
+					<div className="col-md-6"></div>
+		    </div>
+			</div>
 		)
 	}
 }

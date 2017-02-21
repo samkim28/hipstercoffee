@@ -11,7 +11,7 @@ export default class HipsterResult extends Component {
 		return(
 			<div>
 		   	<h3>
-		    	<Link to={`/shoppage/${this.props.result._id}/${this.props.result.name}`}>{this.props.result.name}</Link>
+		    	<Link to={`/shoppage/${this.props.result.yelp_id}/${this.props.result.name}`}>{this.props.result.name}</Link>
 		    </h3>
 				<div>
 			  	Likes: {this.props.result.likes}
