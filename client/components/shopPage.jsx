@@ -56,7 +56,7 @@ class ShopPage extends Component {
           <h3>{this.props.storeData.data.name}</h3>
           <ReviewBox />
           <div>
-            Reviews: {shopReviews}
+            {shopReviews}
           </div>
           <div>
             Likes: {this.props.storeData.data.likes}
