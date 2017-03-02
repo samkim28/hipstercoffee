@@ -7,6 +7,8 @@ import ReviewBox from './reviewBox';
 import Cookies from 'js-cookie';
 import { fetchReviews } from '../actions/storeReviews';
 import { fetchStore } from '../actions/hipsterStores';
+import NavBar from './navbar';
+
 
 
 class ShopPage extends Component {
@@ -37,6 +39,7 @@ class ShopPage extends Component {
     if(!this.props.storeData || !this.props.shop) {
       return (
       <div>
+      <NavBar />
         <h3>{this.props.params.name}</h3>
         <div>
           Reviews: No reviews yet. Be the first!
@@ -49,6 +52,7 @@ class ShopPage extends Component {
       const shopReviews = this.props.shop.shopReviews.map((review, idx) => <Review review={review} key={idx} />);
       return (
         <div>
+        <NavBar />
           <h3>{this.props.storeData.data.name}</h3>
           <ReviewBox />
           <div>
