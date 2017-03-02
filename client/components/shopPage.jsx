@@ -12,17 +12,21 @@ import { fetchStore } from '../actions/hipsterStores';
 class ShopPage extends Component {
   constructor(props) {
     super(props);
-    console.log('props inside shop page: ',props);
   }
-
-// NEED TO PASS IN MONGO OBJ ID, NOT YELP ID.
 
 
   componentWillMount(){
-    console.log('this.props inside shop page: ', this.props);
-    this.props.fetchStore(this.props.params.id);
-    this.props.fetchReviews(this.props.params.id);
-    Cookies.set('store_id', this.props.params.id);
+    this.props.fetchStore(this.props.params.id)
+    .then(
+      () => {
+        this.props.fetchReviews(this.props.storeData.data._id)
+      }
+    )
+    .then(
+      () => {
+        Cookies.set('store_id', this.props.storeData.data._id);
+      }
+    )
   }
 
   componentWillUnmount(){

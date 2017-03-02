@@ -28,16 +28,15 @@ export function fetchAllStores() {
   });
 }
 
-export function fetchStore(store_id) {
+export function fetchStore(yelp_id) {
   const data = {
     params: {
-      store_id: store_id
+      yelp_id: yelp_id
     }
   }
   return axios.get('/fetchstore', data)
   .then(checkStatus)
   .then((response) => {
-    console.log('response: ', response)
     return { type: FETCH_STORE, payload: response.data }
   })
   .catch((error) => {

@@ -4,7 +4,6 @@ import { Link } from 'react-router';
 
 
 const Result = (props) => {
-	console.log('props inside yelp results: ', props);
 	return (
 		<div>
       <h3><Link to={`/shoppage/${props.result.id}/${props.result.name}`}>{props.result.name}</Link></h3>

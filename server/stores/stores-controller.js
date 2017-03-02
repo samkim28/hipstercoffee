@@ -28,11 +28,10 @@ const stores = {
   },
   'fetchstore': {
     'get': (req, res) => {
-      Stores.findById(req.query.store_id, (err, store) => {
+      Stores.findOne({"yelp_id" : req.query.yelp_id}, (err, store) => {
         if(err) {
           return console.error(err);
         } else {
-          console.log('store: ', store)
           res.send(store);
         }
       });

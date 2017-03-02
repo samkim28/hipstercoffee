@@ -7,6 +7,7 @@ const Schema = mongoose.Schema;
 const reviewsSchema = mongoose.Schema({
   review: String,
   username: String,
+  yelp_id: String,
   user_id: {
     type: Schema.Types.ObjectId,
     ref: 'User'

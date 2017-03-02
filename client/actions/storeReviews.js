@@ -6,6 +6,7 @@ export function addReview(input) {
   const data = {
     username: input.username,
     review: input.review,
+    yelp_id: input.yelp_id,
     user_id: input.user_id,
     store_id: input.store_id
   }

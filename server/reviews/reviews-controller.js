@@ -7,6 +7,7 @@ const reviews = {
       Reviews.create({
         review: req.body.review,
         username: req.body.username,
+        yelp_id: req.body.yelp_id,
         user_id: req.body.user_id,
         store_id: req.body.store_id
       }, (err, newReview) => {
